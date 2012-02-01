@@ -51,5 +51,5 @@ As soon as they do they will be supported in 1.9 mode.
 
 __LICENSE__
 
-See License.txt
+See LICENSE.txt
 
