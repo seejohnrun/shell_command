@@ -3,6 +3,9 @@ require 'open3'
 
 module ShellCommand
 
+  class Exception < StandardError
+  end
+
   #
   # @attr [Process::Status] status
   #   The status of the command.
@@ -66,6 +69,27 @@ module ShellCommand
     end
   end
   module_function :run
+
+  #
+  # @param 
+  #   (see #run)
+  #
+  # @raise [ShellCommand::Exception]
+  #   If the command is unsuccessful (e.g: > 0 exit status code) 
+  #
+  # @return 
+  #   (see #run)
+  #
+  def run! *args
+    command = run(*args)
+
+    if command.success?
+      command
+    else
+      raise ShellCommand::Exception, "The command '#{args}' has failed."
+    end
+  end
+  module_function :run!
 
 end
 
