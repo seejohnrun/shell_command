@@ -40,4 +40,17 @@ context ShellCommand do
     end
   end
 
+  context 'run!' do
+    it 'must raise a exception when a command fails.' do
+      proc {
+        ShellCommand.run! "ls /opskddiofjfsiodjf"
+      }.must_raise(ShellCommand::Exception)
+    end
+
+    it 'must give a Command when a command is successful.' do
+      command = ShellCommand.run! "ls"
+      command.must_be_instance_of(ShellCommand::Command)
+    end
+  end
+
 end
