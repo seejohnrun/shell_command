@@ -86,7 +86,8 @@ module ShellCommand
     if command.success?
       command
     else
-      raise ShellCommand::Exception, "The command '#{args}' has failed."
+      raise ShellCommand::Exception,
+            "The command '#{args.join(' ')}' has failed."
     end
   end
   module_function :run!
