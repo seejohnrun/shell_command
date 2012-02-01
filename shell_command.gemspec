@@ -7,9 +7,12 @@ Gem::Specification.new do |s|
   s.version     = ShellCommand::VERSION
   s.authors     = ["Rob Gleeson"]
   s.email       = ["rob@flowof.info"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "https://github.com/robgleeson/shell_command"
+  
+  s.summary     = %q{shell_command tries to provide a better interface for 
+                     communicating with commands you spawn on the shell}
+
+  s.description = s.summary
 
   s.rubyforge_project = "shell_command"
 
@@ -17,6 +20,8 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+  s.required_ruby_version = '~> 1.9.1'
 
   s.add_development_dependency "rake"
   s.add_development_dependency "minitest"
