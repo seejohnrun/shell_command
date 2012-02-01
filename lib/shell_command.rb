@@ -33,16 +33,6 @@ module ShellCommand
   end
 
   #
-  # @example
-  #
-  #   ShellCommand.run "ls" do |command|
-  #     if command.success?
-  #       # …
-  #     else
-  #       raise RuntimeError, 'Command "ls" failed.'
-  #     end
-  #   end
-  #
   # @param [String] *args
   #   A command and its arguments to execute (if any).
   #
