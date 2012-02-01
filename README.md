@@ -3,9 +3,9 @@ __OVERVIEW__
 
 | Project         | shell\_command 
 |:----------------|:--------------------------------------------------
-| Homepage        | https://github.com/robgleeson/shell\_command
-| Wiki            | https://github.com/robgleeson/shell\_command/wiki
-| Documentation   | http://rubydoc.info/gems/shell\_command/frames 
+| Homepage        | https://github.com/robgleeson/shell_command
+| Wiki            | https://github.com/robgleeson/shell_command/wiki
+| Documentation   | http://rubydoc.info/gems/shell_command/frames 
 | Author          | Rob Gleeson   
 
 __DESCRIPTION__
