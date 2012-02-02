@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Rob Gleeson"]
   s.email       = ["rob@flowof.info"]
   s.homepage    = "https://github.com/robgleeson/shell_command"
-  
-  s.summary     = %q{shell_command tries to provide a better interface for 
+
+  s.summary     = %q{shell_command tries to provide a better interface for
                      communicating with commands you spawn on the shell}
 
   s.description = s.summary

@@ -61,13 +61,13 @@ module ShellCommand
   module_function :run
 
   #
-  # @param 
+  # @param
   #   (see #run)
   #
   # @raise [ShellCommand::Exception]
-  #   If the command is unsuccessful (e.g: > 0 exit status code) 
+  #   If the command is unsuccessful (e.g: > 0 exit status code)
   #
-  # @return 
+  # @return
   #   (see #run)
   #
   def run! *args
@@ -83,4 +83,3 @@ module ShellCommand
   module_function :run!
 
 end
-
