@@ -10,26 +10,26 @@ module ShellCommand
   # @attr [Process::Status] status
   #   The status of the command.
   #
-  # @attr [String] stderr
+  # @attr [IO] stderr
   #   The output written by the command to standard error.
   #
-  # @attr [String] stdout
+  # @attr [IO] stdout
   #   The output written by the command to standard output.
   #
   class Command
 
-    def initialize status, stderr_stream, stdout_stream
-      @stdout_stream = stdout_stream
-      @stderr_stream = stderr_stream
+    def initialize status, stderr, stdout
+      @stdout = stdout
+      @stderr = stderr
       @status = status
     end
 
     def stdout
-      @stdout ||= @stdout_stream.read
+      @stdout ||= @stdout.read
     end
 
     def strerr
-      @stderr ||= @stderr_stream.read
+      @stderr ||= @stderr.read
     end
 
     def method_missing method, *args, &block
