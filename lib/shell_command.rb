@@ -16,18 +16,32 @@ module ShellCommand
   # @attr [String] stdout
   #   The output written by the command to standard output.
   #
-  class Command < Struct.new(:status, :stderr, :stdout)
+  class Command
+
+    def initialize status, stderr_stream, stdout_stream
+      @stdout_stream = stdout_stream
+      @stderr_stream = stderr_stream
+      @status = status
+    end
+
+    def stdout
+      @stdout_stream.read
+    end
+
+    def strerr
+      @stderr_stream.read
+    end
 
     def method_missing method, *args, &block
-      if status.respond_to?(method)
-        status.send(method, *args, &block)
+      if @status.respond_to?(method)
+        @status.send(method, *args, &block)
       else
         super
       end
     end
 
     def respond_to_missing? method, include_private = false
-      status.respond_to?(method, include_private)
+      @status.respond_to?(method, include_private)
     end
 
   end
@@ -49,7 +63,7 @@ module ShellCommand
 
     Open3.popen3(*args) do |_, stdout, stderr, thr|
       status  = thr.value
-      command = Command.new(status, stderr.read, stdout.read)
+      command = Command.new(status, stderr, stdout)
 
       if block_given?
         yield(command)
