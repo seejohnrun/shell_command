@@ -25,11 +25,11 @@ module ShellCommand
     end
 
     def stdout
-      @stdout_stream.read
+      @stdout ||= @stdout_stream.read
     end
 
     def strerr
-      @stderr_stream.read
+      @stderr ||= @stderr_stream.read
     end
 
     def method_missing method, *args, &block
